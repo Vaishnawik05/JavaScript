@@ -1,0 +1,16 @@
+body{
+    text-align: center;
+    background-color: aqua;
+}
+p{
+    font-weight: bold;
+    font-variant: small-caps;
+    color: whitesmoke;
+    font-size: 30px;
+}
+h1{
+    font-weight: bold;
+    font-variant:inherit;
+    color: blue;
+    font-size: 30px;
+}
