@@ -1,24 +1,35 @@
-var first_name = (Rashmika);
-console.log(first_name);
-var last_name = (Mandana);
-console.log(last_name);
-var full_name = firstname.concat(lastname);
-console.log(full_name);
-var length_of_full_name = full_name.length;
-var making_lower_case = capital_name.toLowerCase();
-var making_lower_case = small_name.toUpperCase();
-var a= 10;
-console.log(a);
-var b=5;
-console.log(b);
-var square_root = Math.sqrt(16);
-console.log(square_root);
-var maximum_number = Math.max(15, 10);
-console.log(maximum_number);
-var minimum_number = Math.min(15, 10);
-console.log(minimum_number);
-var power_eg_1 = Math.pow(4, 2);
-var add = a+b;
-console.log(add);
-var subtract = a-b;
-console.log(subtract);
+menu_list_array = ["Veg Margherita Pizza",
+"Chicken Tandoori Pizza",
+"Veg Supreme Pizza",
+"Paneer Tikka Pizza",
+"Deluxe Veggie Pizza",
+"Veg Extravaganza Pizza"];
+
+function getmenu(){
+var htmldata;
+htmldata="<ol class='menulist'>"
+menu_list_array.sort();
+for(var i=0;i<menu_list_array.length;i++){
+    htmldata=htmldata+'<li>' + menu_list_array[i] + '</li>'
+}
+htmldata=htmldata+"</ol>"
+document.getElementById("display_menu").innerHTML=htmldata;
+}
+
+function add_item(){
+var htmldata;
+var item=document.getElementById("add_item").value;
+menu_list_array.sort();
+htmldata="<section class='cards'>"
+for(var i=0;i<menu_list_array.length;i++){
+    htmldata=htmldata+'<div class="card">'+'<img src="images/pizzaImg.png"/>'+menu_list_array[i]+'</div>' 
+}
+htmldata=htmldata+"</section>"
+document.getElementById("display_addedmenu").innerHTML=htmldata;
+}
+
+function add_top(){
+var item=document.getElementById("add_item").value;
+menu_list_array.push(item);
+add_item();
+}
