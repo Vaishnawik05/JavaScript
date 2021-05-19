@@ -1,31 +1,37 @@
 <html>
     <head>
-        <title>My Family Book</title>
+        <title>Project 77</title>
+        <link rel="stylesheet" href="style.css">
+        
     </head>
     <body>
-        <h4 id="family_members_name"></h4>
-        <img src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/34449/three-generation-family-clipart-md.png" style="width: 30%;" id="family_member_image">
+        <h1> Visual Studio</h1>
+        <hr>
+        <p>
+           This is an IDE used for coding websites. It has all advanced features. It allows to make index or html, style or css and main or js. 
+        </p>
+        <h1>Console Screen</h1>
+        <hr>
+        <p>
+            This screen performs and prints many commands. To print something on it we need to write console.log(variable); We can also perform many other commands such as concat, length, max, min, push, etc.
+        </p>
         <script>
-            var images =["https://cdn.onesearch.com/lo/api/res/1.2/7hN1yhjo1mW1i766hwE5Cw--~B/YXBwaWQ9eWlzZWFyY2g7Zmk9Zml0O2dlPTAwNjYwMDtncz0wMEEzMDA7aD0xMDI0O3c9Mzg0/https://webstockreview.net/images/father-clipart-10.jpg.cf.jpg;",
-            "https://cdn.onesearch.com/ib/th?id=OIP.eTeCuNd5XH4ovxudrJGg_gHaOC&pid=Api&P=0&w=300&h=300",
-            "https://cdn.onesearch.com/ib/th?id=OIP.c3jq3ZAKlPhIaG0A1kRqWgHaJX&pid=Api&P=0&w=300&h=300",
-            "https://cdn.onesearch.com/lo/api/res/1.2/hoy_vk3jTfcdkUwciPgW4w--~B/YXBwaWQ9eWlzZWFyY2g7Zmk9Zml0O2dlPTAwNjYwMDtncz0wMEEzMDA7aD0xMDY3O3c9ODIw/https://clipartsworld.com/images/this-cool-grandma-clip-art-2.jpg.cf.jpg",
-            "https://cdn.onesearch.com/ib/th?id=OIP.RGPc22UlKSDl1jSQzrG9kQHaJ4&pid=Api&P=0&w=300&h=300",
-            "https://cdn.onesearch.com/lo/api/res/1.2/4AnRnW2ppwNQnaKpPVPQeA--~B/YXBwaWQ9eWlzZWFyY2g7Zmk9Zml0O2dlPTAwNjYwMDtncz0wMEEzMDA7aD04MDA7dz00MTQ-/https://clipartstation.com/wp-content/uploads/2018/10/short-hair-girl-clipart-6.jpg.cf.jpg"
-        ];
-        var names=["Family Book", "Navin Kumar", "Rajeshwari Kumari", "Smriti Raj", "Ram Rati Devi", "Vasudev Prasad", "Vaishnawi"]
-       var i=0;
-       function update(){
-           i++;
-           var numbers_of_family_member_in_array=5
-           if(i>numbers_of_family_member_in_array)
-           {i=0;}
-       var updatedImage=images[i];
-    var updatedName=names[i];
-    document.getElementById("family_member_image").src=updatedImage;
-document.getElementById("family_members_name").innerHTML=updatedName;    
-}
-       
-       </script>
+            console.log("My first console project");
+            var firstname="Rashmika";
+            var lastname=" Mandana";
+            var full_name= firstname.concat(lastname);
+            console.log(full_name)
+            var a="10";
+            var b="5";
+            var add= a + b;
+            console.log(add);
+            var subtract= a-b;
+            console.log(subtract);
+            var multiply= a*b;
+            console.log(multiply);
+            var divide= a/b;
+            console.log(divide);
+</script>
+
     </body>
 </html>
