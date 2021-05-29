@@ -1,51 +1,36 @@
-<html><head>
-    <title>Pizzeria</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-<script src="main.js"></script>
-</head>
-
-<body>
-<center>
-    <div class="topnav">
-        <a class="active" href="#">Pizzeria</a>
-        <div class="topnav-right">
-         <a href="#viewblock">View Menu</a>
-         <a href="#addTopings">Add Menu</a>
-        </div>
-    </div>
-
-    <div class="row" id="viewblock">
-        <div class="img_div"> 
-            <img class="img-responsive" src="images/pizza.png">
-        </div>
-        <div class="menu_div">
-            <button id="menu_list" onclick="getmenu()">Show Menu</button>
-           <div id="display_menu"></div>
-        </div>
-    </div>
-    
-    <div class="newRow" id="addTopings">
-        <div class="block1">
-            <input id="add_item" placeholder="Type here to add toppings?"> 
-			<button class="btn btn-success" onclick="add_top()">Add</button>
-            <button id="add_toppings" onclick="add_item()">Show Pizza</button>
-        </div>
-		
-        <div class="block2">
-            <div id="display_addedmenu">
-            </div>
-        </div>
-        
-    </div>
-
-    <div>
-        <img class="img-responsive" src="images/topping.png">
-    </div>
-
-</center>
-</body></html>
+<html>
+    <head>
+        <title>My Family Book</title>
+    </head>
+    <body>
+        <center>
+        <h4 id="family_members_name"></h4>
+        <img src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/34449/three-generation-family-clipart-md.png" style="width: 30%;" id="family_member_image">
+        <script>
+            var images =["https://cdn.onesearch.com/lo/api/res/1.2/7hN1yhjo1mW1i766hwE5Cw--~B/YXBwaWQ9eWlzZWFyY2g7Zmk9Zml0O2dlPTAwNjYwMDtncz0wMEEzMDA7aD0xMDI0O3c9Mzg0/https://webstockreview.net/images/father-clipart-10.jpg.cf.jpg;",
+            "https://cdn.onesearch.com/ib/th?id=OIP.eTeCuNd5XH4ovxudrJGg_gHaOC&pid=Api&P=0&w=300&h=300",
+            "https://cdn.onesearch.com/ib/th?id=OIP.c3jq3ZAKlPhIaG0A1kRqWgHaJX&pid=Api&P=0&w=300&h=300",
+            "https://cdn.onesearch.com/lo/api/res/1.2/hoy_vk3jTfcdkUwciPgW4w--~B/YXBwaWQ9eWlzZWFyY2g7Zmk9Zml0O2dlPTAwNjYwMDtncz0wMEEzMDA7aD0xMDY3O3c9ODIw/https://clipartsworld.com/images/this-cool-grandma-clip-art-2.jpg.cf.jpg",
+            "https://cdn.onesearch.com/ib/th?id=OIP.RGPc22UlKSDl1jSQzrG9kQHaJ4&pid=Api&P=0&w=300&h=300",
+            "https://cdn.onesearch.com/lo/api/res/1.2/4AnRnW2ppwNQnaKpPVPQeA--~B/YXBwaWQ9eWlzZWFyY2g7Zmk9Zml0O2dlPTAwNjYwMDtncz0wMEEzMDA7aD04MDA7dz00MTQ-/https://clipartstation.com/wp-content/uploads/2018/10/short-hair-girl-clipart-6.jpg.cf.jpg"
+        ];
+        var names=["Family Book", "Navin Kumar", "Rajeshwari Kumari", "Smriti Raj", "Ram Rati Devi", "Vasudev Prasad", "Vaishnawi"];
+       <button onclick="update()">Next</button>
+       var i=0;
+       function update(){
+           i++;
+           var numbers_of_family_member_in_array= 5
+           if(i > numbers_of_family_member_in_array)
+           {
+               i=0;
+        }
+       var updatedImage = images [i];
+    var updatedName = names [i];
+    document.getElementById("family_member_image").src = updatedImage;
+document.getElementById("family_members_name").innerHTML = updatedName;    
+}
+       
+       </script>
+       </center>
+    </body>
+</html>
