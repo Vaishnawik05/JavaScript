@@ -1,35 +1,28 @@
-menu_list_array = ["Veg Margherita Pizza",
-"Chicken Tandoori Pizza",
-"Veg Supreme Pizza",
-"Paneer Tikka Pizza",
-"Deluxe Veggie Pizza",
-"Veg Extravaganza Pizza"];
+canavs = document.getElementById("myCanvas");
+ctx = canavs.getContext("2d");
+color = "red";
+ctx.beginPath();
+ctx.strokeStyle = color;
+ctx.lineWidth = 2;
+ctx.arc(200, 200, 40, 0, 2*Math.PI);
+ctx.stroke();
+canvas.addEventListener("mousedown", my_mousedown);
+function my_mousedown(e){
+    color = document.getElementById("color"),value;
+    console.log(color);
 
-function getmenu(){
-var htmldata;
-htmldata="<ol class='menulist'>"
-menu_list_array.sort();
-for(var i=0;i<menu_list_array.length;i++){
-    htmldata=htmldata+'<li>' + menu_list_array[i] + '</li>'
+mouse_x = e.clientX - canvas.offsetLeft;
+mouse_y = e.clientY - canva.offsetTop;
+console.log("X = " + mouse_x + " ,Y = " + mouse_y);
+circle(mouse_x, mouse_y);
 }
-htmldata=htmldata+"</ol>"
-document.getElementById("display_menu").innerHTML=htmldata;
+function circle(mouse_x, mouse_y){
+    ctx.beginPath();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.arc(mouse_y, 40, 0, 2*Math.PI);
+    ctx.stroke();
 }
-
-function add_item(){
-var htmldata;
-var item=document.getElementById("add_item").value;
-menu_list_array.sort();
-htmldata="<section class='cards'>"
-for(var i=0;i<menu_list_array.length;i++){
-    htmldata=htmldata+'<div class="card">'+'<img src="images/pizzaImg.png"/>'+menu_list_array[i]+'</div>' 
-}
-htmldata=htmldata+"</section>"
-document.getElementById("display_addedmenu").innerHTML=htmldata;
-}
-
-function add_top(){
-var item=document.getElementById("add_item").value;
-menu_list_array.push(item);
-add_item();
+function clearArea(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 }

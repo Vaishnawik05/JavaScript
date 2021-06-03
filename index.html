@@ -1,36 +1,22 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>My Family Book</title>
-    </head>
-    <body>
-        <center>
-        <h4 id="family_members_name"></h4>
-        <img src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/34449/three-generation-family-clipart-md.png" style="width: 30%;" id="family_member_image">
-        <script>
-            var images =["https://cdn.onesearch.com/lo/api/res/1.2/7hN1yhjo1mW1i766hwE5Cw--~B/YXBwaWQ9eWlzZWFyY2g7Zmk9Zml0O2dlPTAwNjYwMDtncz0wMEEzMDA7aD0xMDI0O3c9Mzg0/https://webstockreview.net/images/father-clipart-10.jpg.cf.jpg;",
-            "https://cdn.onesearch.com/ib/th?id=OIP.eTeCuNd5XH4ovxudrJGg_gHaOC&pid=Api&P=0&w=300&h=300",
-            "https://cdn.onesearch.com/ib/th?id=OIP.c3jq3ZAKlPhIaG0A1kRqWgHaJX&pid=Api&P=0&w=300&h=300",
-            "https://cdn.onesearch.com/lo/api/res/1.2/hoy_vk3jTfcdkUwciPgW4w--~B/YXBwaWQ9eWlzZWFyY2g7Zmk9Zml0O2dlPTAwNjYwMDtncz0wMEEzMDA7aD0xMDY3O3c9ODIw/https://clipartsworld.com/images/this-cool-grandma-clip-art-2.jpg.cf.jpg",
-            "https://cdn.onesearch.com/ib/th?id=OIP.RGPc22UlKSDl1jSQzrG9kQHaJ4&pid=Api&P=0&w=300&h=300",
-            "https://cdn.onesearch.com/lo/api/res/1.2/4AnRnW2ppwNQnaKpPVPQeA--~B/YXBwaWQ9eWlzZWFyY2g7Zmk9Zml0O2dlPTAwNjYwMDtncz0wMEEzMDA7aD04MDA7dz00MTQ-/https://clipartstation.com/wp-content/uploads/2018/10/short-hair-girl-clipart-6.jpg.cf.jpg"
-        ];
-        var names=["Family Book", "Navin Kumar", "Rajeshwari Kumari", "Smriti Raj", "Ram Rati Devi", "Vasudev Prasad", "Vaishnawi"];
-       <button onclick="update()">Next</button>
-       var i=0;
-       function update(){
-           i++;
-           var numbers_of_family_member_in_array= 5
-           if(i > numbers_of_family_member_in_array)
-           {
-               i=0;
-        }
-       var updatedImage = images [i];
-    var updatedName = names [i];
-    document.getElementById("family_member_image").src = updatedImage;
-document.getElementById("family_members_name").innerHTML = updatedName;    
-}
-       
-       </script>
-       </center>
-    </body>
+<head>
+
+<title>C81</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body class="body_backgorund">
+
+<center>
+	<h1>My First Canvas</h1>
+	<canvas id= "myCanvas" width= "800" height= "600"></canvas>
+	<br>
+	<span>Color - </span> <input type= "text" id="color">
+	<br>
+	<button onclick="clearArea();">Clear</button>
+</center>
+
+
+<script src="main.js"></script>
+</body>
 </html>
