@@ -1,28 +1,46 @@
-canavs = document.getElementById("myCanvas");
-ctx = canavs.getContext("2d");
-color = "red";
-ctx.beginPath();
-ctx.strokeStyle = color;
-ctx.lineWidth = 2;
-ctx.arc(200, 200, 40, 0, 2*Math.PI);
-ctx.stroke();
-canvas.addEventListener("mousedown", my_mousedown);
-function my_mousedown(e){
-    color = document.getElementById("color"),value;
-    console.log(color);
+var names_of_people = [];
+    
+function submit()
+{
+    var GuestName = document.getElementById("name1").value;
+	names_of_people.push(GuestName);
 
-mouse_x = e.clientX - canvas.offsetLeft;
-mouse_y = e.clientY - canva.offsetTop;
-console.log("X = " + mouse_x + " ,Y = " + mouse_y);
-circle(mouse_x, mouse_y);
-}
-function circle(mouse_x, mouse_y){
-    ctx.beginPath();
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 2;
-    ctx.arc(mouse_y, 40, 0, 2*Math.PI);
-    ctx.stroke();
-}
-function clearArea(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+	console.log(GuestName);
+        
+    console.log(names_of_people);
+    var lenght_of_name = names_of_people.length;
+    console.log(lenght_of_name);
+	document.getElementById("display_name").innerHTML=names_of_people.toString();
+	
+   }
+
+function sorting()
+{
+	names_of_people.sort();
+	var i= names_of_people.join("<br>");
+    console.log(names_of_people);		
+	document.getElementById("sorted").innerHTML=i.toString();
+	}
+
+function show()
+{
+	var i= names_of_people.join("<br>");
+	console.log(names_of_people);
+	document.getElementById("p1").innerHTML=i.toString();
+	document.getElementById("sort_button").style.display="block";
+	}
+
+function searching()
+{
+	var s= document.getElementById("s1").value;
+	var found=0;
+	var j;
+	for(j=0; j<names_of_people.length; j++)
+		{
+			if(s==names_of_people[j]){
+				found=found+1;
+			}	
+		}
+	document.getElementById("p2").innerHTML="name found "+found+" time/s";
+	console.log("found name "+found+" time/s");
 }
