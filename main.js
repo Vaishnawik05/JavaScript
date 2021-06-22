@@ -1,46 +1,79 @@
-var names_of_people = [];
-    
-function submit()
-{
-    var GuestName = document.getElementById("name1").value;
-	names_of_people.push(GuestName);
+canvas = document.getElementById('myCanvas');
+ctx = canvas.getContext("2d");
 
-	console.log(GuestName);
-        
-    console.log(names_of_people);
-    var lenght_of_name = names_of_people.length;
-    console.log(lenght_of_name);
-	document.getElementById("display_name").innerHTML=names_of_people.toString();
-	
-   }
+car1_width = 120;
+car1_height = 70;
+car1_image = "car1.png";
+car1_x = 10;
+car1_y = 10;
 
-function sorting()
-{
-	names_of_people.sort();
-	var i= names_of_people.join("<br>");
-    console.log(names_of_people);		
-	document.getElementById("sorted").innerHTML=i.toString();
-	}
+car2_width = 120;
+car2_height = 70;
+car2_image = "car2.png";
+car2_x = 10;
+car2_y = 100;
 
-function show()
-{
-	var i= names_of_people.join("<br>");
-	console.log(names_of_people);
-	document.getElementById("p1").innerHTML=i.toString();
-	document.getElementById("sort_button").style.display="block";
-	}
+background_image = "racing.jpg"
 
-function searching()
-{
-	var s= document.getElementById("s1").value;
-	var found=0;
-	var j;
-	for(j=0; j<names_of_people.length; j++)
-		{
-			if(s==names_of_people[j]){
-				found=found+1;
-			}	
-		}
-	document.getElementById("p2").innerHTML="name found "+found+" time/s";
-	console.log("found name "+found+" time/s");
+function add() {
+    background_imgTag = new Image();
+    background_imgTag.onload = uploadBackground;
+    background_imgTag.src = background_image;
+
+    car1_imgTag = new Image();
+    car1_imgTag.onload = uploadcar1;
+    car1_imgTag.src = car1_image;
+}
+
+function uploadBackground(){
+    ctx.drawImage(background_imgTag, 0, 0, canvas.width, canvas.height);
+}
+
+function uploadcar1(){
+    ctx.drawImage(car1_imgTag, car1_x, car1_y, car1_width, car1_height);
+}
+
+window.addEventListener("keydown", my_keydown);
+
+function my_keydown(e){
+    keyPressed = e.keyCode;
+    console.log(keyPressed);
+    if(keyPressed =='38'){
+        car1_up();
+        console.log("up arrow key");
+    }
+    if(keyPressed == '40'){
+        car1_down();
+        console.log("down arrow key");
+    }
+
+    if(keyPressed == '37'){
+        car1_left();
+        console.log("left arrow key");
+    }
+
+    if(keyPressed == '39'){
+        car1_right();
+        console.log("right arrow key");
+    }
+
+    if(keyPressed == '87'){
+        car2_up();
+        console.log("key w");
+    }
+
+    if(keyPressed == '65'){
+        car2_left();
+        console.log("key a");
+    }
+
+    if(keyPressed == '83'){
+        car2_right();
+        console.log("key s");
+    }
+
+    if(keyPressed == '90'){
+        car_down();
+        console.log("key z");
+    }
 }

@@ -1,43 +1,23 @@
 <html>
-<head>
-	<title>Guest List</title>
-<link rel="stylesheet" type="text/css" href="style.css">
-<script src="Tmain.js"></script>
-
-</head>
-<body>
-<center>
-<h3 style="margin-top: 20px; margin-bottom: 20px; ">
-	Guest List
-</h3>
-
-<div id="rows">
-
-<input type="text" placeholder="Enter name" id="name1">
-<button onclick="submit()" id="submit_button">
-	Submit
-</button><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-	
-<hr>
-
-<div id="display_name">
-</div>
-<hr>
-	<div id="Show1"><h3 id="hd1">Guest List</h3>
-		<button onclick="show()" id="show">Show</button>
-		<p id="p1"></p></div>
-	
-<hr>
-<button onclick="sorting()" id="sort_button">
-	Sorted List
-</button>
-	<div id="sorted"></div>
-    </div>
-	<hr>
-	<input type="text" placeholder="Search name" id="s1">&nbsp;
-	<button onclick="searching()" id="srch">Search</button>
-	<p id="p2"></p>
-</center>
-		
-</body>
+    <head><title>Project 84</title>
+    </head>
+    <style>
+        body{
+            background-image: url("racing.gif");
+            background-position: center;
+            background-size: cover;
+        }
+</style>		
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <body>
+        <h1>Car Racing Game</h1>
+        <h1>Game Status : <span id="game_status"></span></h1>
+        <canvas id="myCanvas" width="800" height="600"></canvas>
+        <h4>
+            
+            <b>NOTE : </b> IF CAR IS NOT VISIBLE PRESS ANY ARROW KEY
+        </h4>
+    </body>
 </html>
