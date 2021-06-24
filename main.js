@@ -1,79 +1,107 @@
-canvas = document.getElementById('myCanvas');
-ctx = canvas.getContext("2d");
+var canvas = new fabric.Canvas('myCanvas');
 
-car1_width = 120;
-car1_height = 70;
-car1_image = "car1.png";
-car1_x = 10;
-car1_y = 10;
+block_image_width = 30;
+block_image_height = 30;
 
-car2_width = 120;
-car2_height = 70;
-car2_image = "car2.png";
-car2_x = 10;
-car2_y = 100;
+player_x = 10;
+player_y = 10;
 
-background_image = "racing.jpg"
+var player_object = "";
 
-function add() {
-    background_imgTag = new Image();
-    background_imgTag.onload = uploadBackground;
-    background_imgTag.src = background_image;
+function player_update(){
+    fabric.Image.fromURL("player.png", function(Img){
+        player_object = Img;
 
-    car1_imgTag = new Image();
-    car1_imgTag.onload = uploadcar1;
-    car1_imgTag.src = car1_image;
+        player_object.scaleToWidth(150);
+        player_object.scaleToHeight(140);
+        player_object.set({
+            top:player_y,
+            left:player_x
+        });
+        canvas.add(player_object);
+    });
 }
 
-function uploadBackground(){
-    ctx.drawImage(background_imgTag, 0, 0, canvas.width, canvas.height);
-}
+fabric.Image.fromURL("player.png", function(Img){
+})
 
-function uploadcar1(){
-    ctx.drawImage(car1_imgTag, car1_x, car1_y, car1_width, car1_height);
+function new_image(get_image){
+    fabric.Image.fromURL(get_image, function(Img){
+   block_image_object.scaleToWidth(block_image_width);
+   block_image_object.scaleToHeight(block_image_height);
+   block_image_object.set({
+       top:player_y,
+       left:player_x
+   })    
+   canvas.add(block_image_object);
+    })
 }
 
 window.addEventListener("keydown", my_keydown);
-
 function my_keydown(e){
     keyPressed = e.keyCode;
     console.log(keyPressed);
-    if(keyPressed =='38'){
-        car1_up();
-        console.log("up arrow key");
-    }
-    if(keyPressed == '40'){
-        car1_down();
-        console.log("down arrow key");
-    }
+if(e.shiftKey == true && keyPressed == '80'){
+console.log("p and shift pressed together");
+block_image_width = block_image_width + 10;
+block_image_height = block_image_height + 10;
+document.getElementById("current_width").innerHTML = block_image_width;
+document.getElementById("current_height").innerHTML = block_image_height;
+}
+if(e.shiftKey && keyPressed == '77'){
+    console.log("m and shift pressed together");
+    block_image_width = block_image_width - 10;
+    block_image_height = block_image_height - 10;
+    document.getElementById("current_width").innerHTML = block_image_width;
+    document.getElementById("current_height").innerHTML = block_image_height;
 
-    if(keyPressed == '37'){
-        car1_left();
-        console.log("left arrow key");
-    }
-
-    if(keyPressed == '39'){
-        car1_right();
-        console.log("right arrow key");
-    }
-
-    if(keyPressed == '87'){
-        car2_up();
-        console.log("key w");
-    }
-
-    if(keyPressed == '65'){
-        car2_left();
-        console.log("key a");
-    }
-
-    if(keyPressed == '83'){
-        car2_right();
-        console.log("key s");
-    }
-
-    if(keyPressed == '90'){
-        car_down();
-        console.log("key z");
-    }
+}
+if(keyPressed == '38'){
+    up();
+    console.log("up");
+}
+if(keyPressed == '40'){
+    down();
+    console.log("down");
+}
+if(keyPressed == '37'){
+    left();
+    console.log("left");
+}
+if(keyPressed == '39'){
+    right();
+    console.log("right");
+}
+if(keyPressed == '87'){
+    new_image('wall.jpg');
+    console.log("w");
+}
+if(keyPressed == '71'){
+    new_image('ground.png');
+    console.log("g");
+}
+if(keyPressed == '76'){
+    new_image('light_green.png');
+    console.log("l");
+}
+if(keyPressed == '84'){
+    new_image('trunk.jpg');
+    console.log("t");
+}
+if(keyPressed == '82'){
+    new_image('trunk.jpg');
+    console.log("t");
+}
+if(keyPressed == '89'){
+    new_image('yellow_wall.png');
+    console.log("y");
+}
+if(keyPressed == '68'){
+    new_image('dark_green.png');
+    console.log("d");
+}
+if(keyPressed == '85'){
+    new_image('different.png');
+    console.log("c");
+}
 }
