@@ -1,107 +1,169 @@
-var canvas = new fabric.Canvas('myCanvas');
+canvas = document.getElementById('myCanvas');
+ctx = canvas.getContext("2d");
 
-block_image_width = 30;
-block_image_height = 30;
+car1_width = 120;
+car1_height = 70;
+car1_image = "car1.png";
+car1_x = 10;
+car1_y = 10;
 
-player_x = 10;
-player_y = 10;
+car2_width = 120;
+car2_height = 70;
+car2_image = "car2.png";
+car2_x = 10;
+car2_y = 100;
 
-var player_object = "";
+background_image = "racing.jpg"
 
-function player_update(){
-    fabric.Image.fromURL("player.png", function(Img){
-        player_object = Img;
+function add() {
+    background_imgTag = new Image();
+    background_imgTag.onload = uploadBackground;
+    background_imgTag.src = background_image;
 
-        player_object.scaleToWidth(150);
-        player_object.scaleToHeight(140);
-        player_object.set({
-            top:player_y,
-            left:player_x
-        });
-        canvas.add(player_object);
-    });
+    car1_imgTag = new Image();
+    car1_imgTag.onload = uploadcar1;
+    car1_imgTag.src = car1_image;
 }
 
-fabric.Image.fromURL("player.png", function(Img){
-})
+function uploadBackground(){
+    ctx.drawImage(background_imgTag, 0, 0, canvas.width, canvas.height);
+}
 
-function new_image(get_image){
-    fabric.Image.fromURL(get_image, function(Img){
-   block_image_object.scaleToWidth(block_image_width);
-   block_image_object.scaleToHeight(block_image_height);
-   block_image_object.set({
-       top:player_y,
-       left:player_x
-   })    
-   canvas.add(block_image_object);
-    })
+function uploadcar1(){
+    ctx.drawImage(car1_imgTag, car1_x, car1_y, car1_width, car1_height);
+}
+
+function uploadcar2(){
+    ctx.drawImage(car2_imgTag, car2_x, car2_y, car2_width, car2_height);
 }
 
 window.addEventListener("keydown", my_keydown);
+
 function my_keydown(e){
     keyPressed = e.keyCode;
     console.log(keyPressed);
-if(e.shiftKey == true && keyPressed == '80'){
-console.log("p and shift pressed together");
-block_image_width = block_image_width + 10;
-block_image_height = block_image_height + 10;
-document.getElementById("current_width").innerHTML = block_image_width;
-document.getElementById("current_height").innerHTML = block_image_height;
-}
-if(e.shiftKey && keyPressed == '77'){
-    console.log("m and shift pressed together");
-    block_image_width = block_image_width - 10;
-    block_image_height = block_image_height - 10;
-    document.getElementById("current_width").innerHTML = block_image_width;
-    document.getElementById("current_height").innerHTML = block_image_height;
+    if(keyPressed =='38'){
+        car1_up();
+        console.log("up arrow key");
+    }
+    if(keyPressed == '40'){
+        car1_down();
+        console.log("down arrow key");
+    }
 
+    if(keyPressed == '37'){
+        car1_left();
+        console.log("left arrow key");
+    }
+
+    if(keyPressed == '39'){
+        car1_right();
+        console.log("right arrow key");
+    }
+
+    if(keyPressed == '87'){
+        car2_up();
+        console.log("key w");
+    }
+
+    if(keyPressed == '65'){
+        car2_left();
+        console.log("key a");
+    }
+
+    if(keyPressed == '83'){
+        car2_right();
+        console.log("key s");
+    }
+
+    if(keyPressed == '90'){
+        car_down();
+        console.log("key z");
+    }
 }
-if(keyPressed == '38'){
-    up();
-    console.log("up");
+
+function car1_up(){
+    if(car1_y >= 0){
+        car1_y = car1_y -10;
+        console.log("When up arrow is pressed, x = " + car1_x + " | y = " +car1_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
 }
-if(keyPressed == '40'){
-    down();
-    console.log("down");
+
+function car1_down(){
+    if(car1_y >= 500){
+        car1_y = car1_y +10;
+        console.log("When down arrow is pressed, x = " + car1_x + " | y = " +car1_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
 }
-if(keyPressed == '37'){
-    left();
-    console.log("left");
+
+function car1_left(){
+    if(car1_x >= 0){
+        car1_x = car1_x - 10;
+        console.log("When left arrow is pressed, x = " + car1_x + " | y = " +car1_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
 }
-if(keyPressed == '39'){
-    right();
-    console.log("right");
+
+function car1_right(){
+    if(car1_x >= 500){
+        car1_x = car1_x +10;
+        console.log("When right arrow is pressed, x = " + car1_x + " | y = " +car1_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
 }
-if(keyPressed == '87'){
-    new_image('wall.jpg');
-    console.log("w");
+
+function car2_up(){
+    if(car2_y >= 500){
+        car2_y = car2_y +10;
+        console.log("When down arrow is pressed, x = " + car2_x + " | y = " +car2_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
 }
-if(keyPressed == '71'){
-    new_image('ground.png');
-    console.log("g");
+
+function car2_down(){
+    if(car2_y >= 500){
+        car2_y = car2_y +10;
+        console.log("When down arrow is pressed, x = " + car2_x + " | y = " +car2_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
 }
-if(keyPressed == '76'){
-    new_image('light_green.png');
-    console.log("l");
+
+function car2_left(){
+    if(car2_x >= 0){
+        car2_x = car2_x - 10;
+        console.log("When left arrow is pressed, x = " + car2_x + " | y = " +car2_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
 }
-if(keyPressed == '84'){
-    new_image('trunk.jpg');
-    console.log("t");
+
+
+function car2_right(){
+    if(car2_x >= 500){
+        car2_x = car2_x +10;
+        console.log("When right arrow is pressed, x = " + car2_x + " | y = " +car2_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
 }
-if(keyPressed == '82'){
-    new_image('trunk.jpg');
-    console.log("t");
-}
-if(keyPressed == '89'){
-    new_image('yellow_wall.png');
-    console.log("y");
-}
-if(keyPressed == '68'){
-    new_image('dark_green.png');
-    console.log("d");
-}
-if(keyPressed == '85'){
-    new_image('different.png');
-    console.log("c");
-}
+
+if(car1_x > 700){
+    console.log("car1 Won");
+    document.getElementById('game_status').innerHTML = "Car 1   Won!";
 }
